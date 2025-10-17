@@ -16,6 +16,7 @@ from decouple import config
 
 import os
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Core.Core.settings')
 
 
 
@@ -33,7 +34,8 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "todo-backend-s910.onrender.com"]
+
 
 
 
