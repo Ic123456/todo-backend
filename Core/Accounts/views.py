@@ -1,7 +1,6 @@
 from rest_framework import permissions
 from rest_framework.generics import (
     CreateAPIView,
-    RetrieveAPIView,
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -11,10 +10,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-from utils.jwt_token import token_decoder
+from Core.utils.jwt_token import token_decoder
 from django.core.mail import EmailMessage
-from utils.email import EmailThread
-from utils.jwt_token import token_generator
+from Core.utils.email import EmailThread
+from Core.utils.jwt_token import token_generator
 from .serializers import (
     RegisterSerializer,
     ResendEmailVerificationSerializer,
