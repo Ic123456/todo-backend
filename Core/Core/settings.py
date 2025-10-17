@@ -16,8 +16,6 @@ from decouple import config
 
 import os
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Core.Core.settings')
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "Core.ToDo",
-    "Core.Accounts",
+    "ToDo",
+    "Accounts",
     'rest_framework',
     "rest_framework_simplejwt.token_blacklist",
     "corsheaders"
@@ -66,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Core.Core.urls'
+ROOT_URLCONF = 'Core.urls'
 
 TEMPLATES = [
     {

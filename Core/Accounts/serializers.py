@@ -2,8 +2,8 @@ from django.core.mail import EmailMessage
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
-from Core.utils.email import EmailThread
-from Core.utils.jwt_token import token_generator
+from utils.email import EmailThread
+from utils.jwt_token import token_generator
 
 User = get_user_model()
 
