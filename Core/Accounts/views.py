@@ -81,7 +81,7 @@ class ResendEmailVerificationAPIView(APIView):
             # Generate a jwt token for resend confirm email
             token = token_generator(user)
             # Resending confirm email token
-            FRONTEND_URL = "http://localhost:3000"
+            FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
             confirm_url = f"{FRONTEND_URL}/auth/verified/{token['access']}"
             msg = f"For confirm email click on: {confirm_url}"
@@ -118,7 +118,7 @@ class ResetPasswordAPIView(APIView):
             # set_password_url = self.request.build_absolute_uri(
             #     reverse("set_password", kwargs={"token": token["access"]})
             # )
-            FRONTEND_URL = "http://localhost:3000"
+            FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
             confirm_url = f"{FRONTEND_URL}/auth/setpassword/{token['access']}"
         

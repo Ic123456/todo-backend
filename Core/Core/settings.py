@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
   
-
+DATABASE_URL = "postgresql://postgres:JBZWMkirrkOsrhsaaYmhTWsSVXdmxVqV@postgres.railway.internal:5432/railway"
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -189,12 +189,12 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",   # add this for when you use 127.0.0.1
-#     "http://localhost:8000",
-# ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",  
+    'https://todo-frontend-m4yu.onrender.com'
+]
+
 
 # in settings.py
 GOOGLE_OAUTH_CLIENT_ID = config('GOOGLE_OAUTH_CLIENT_ID')

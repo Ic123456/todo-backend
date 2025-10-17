@@ -54,7 +54,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         # Generate a jwt token for confirm email
         token = token_generator(user)
-        FRONTEND_URL = "http://localhost:3000"
+        FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
         confirm_url = f"{FRONTEND_URL}/auth/verified/{token['access']}"
         msg = f"For confirm email click on: {confirm_url}"
