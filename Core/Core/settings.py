@@ -35,7 +35,16 @@ DEBUG = config("DEBUG", cast=bool)
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "todo-backend-s910.onrender.com"]
 
 
+import resend
 
+resend.api_key = "re_EWCy9ekk_F6hTzFNtvt4SHr3czoYx8Srn"
+
+r = resend.Emails.send({
+  "from": "onboarding@resend.dev",
+  "to": "israel2017b@gmail.com",
+  "subject": "Hello World",
+  "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
+})
 
 # Application definition
 
@@ -146,14 +155,6 @@ AUTH_USER_MODEL = "Accounts.User"
 APPEND_SLASH=False
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-EMAIL_HOST = config("EMAIL_HOST")
-EMAIL_PORT = config("EMAIL_PORT", cast=int)
-EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool)
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
-
-EMAIL_HOST_USER=config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD=config("EMAIL_HOST_PASSWORD")
 
 
 

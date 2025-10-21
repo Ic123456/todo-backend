@@ -84,9 +84,12 @@ class ResendEmailVerificationAPIView(APIView):
             FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
             confirm_url = f"{FRONTEND_URL}/auth/verified/{token['access']}"
-            msg = f"For confirm email click on: {confirm_url}"
-            email_obj = EmailMessage("Confirm email", msg, to=[user.email])
-            EmailThread(email_obj).start()
+            html_msg = f"""
+                <p>Click below to confirm your email:</p>
+                <p><a href="{confirm_url}">{confirm_url}</a></p>
+            """
+
+            EmailThread(user.email, "Confirm your email", html_msg).start()
             return Response(
                 {"message": "The activation email has been sent again successfully"},
                 status=status.HTTP_200_OK,
@@ -121,11 +124,12 @@ class ResetPasswordAPIView(APIView):
             FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
             confirm_url = f"{FRONTEND_URL}/auth/setpassword/{token['access']}"
-        
-            msg = f"for reset password click on: {confirm_url}"
-            email_obj = EmailMessage("Set password", msg, to=[user.email])
-            # Sending email with threading
-            EmailThread(email_obj).start()
+            html_msg = f"""
+                <p>for reset password click on:</p>
+                <p><a href="{confirm_url}">{confirm_url}</a></p>
+            """
+
+            EmailThread(email, "Reset Password", html_msg).start()
             return Response(
                 {"message: Reset password email has been sent!"},
                 status=status.HTTP_200_OK,

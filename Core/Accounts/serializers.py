@@ -57,9 +57,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         FRONTEND_URL = "https://todo-frontend-m4yu.onrender.com"
 
         confirm_url = f"{FRONTEND_URL}/auth/verified/{token['access']}"
-        msg = f"For confirm email click on: {confirm_url}"
-        email_obj = EmailMessage("Confirm email", msg, to=[email])
-        EmailThread(email_obj).start()
+        html_msg = f"""
+            <p>Click below to confirm your email:</p>
+            <p><a href="{confirm_url}">{confirm_url}</a></p>
+        """
+
+        EmailThread(email, "Confirm your email", html_msg).start()
 
         return {
             "id": user.id,
