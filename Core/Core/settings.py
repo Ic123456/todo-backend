@@ -34,21 +34,10 @@ DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "todo-backend-s910.onrender.com"]
 
-
-import resend
-
-resend.api_key = "re_EWCy9ekk_F6hTzFNtvt4SHr3czoYx8Srn"
-
-r = resend.Emails.send({
-  "from": "onboarding@resend.dev",
-  "to": "israel2017b@gmail.com",
-  "subject": "Hello World",
-  "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
-})
-
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
